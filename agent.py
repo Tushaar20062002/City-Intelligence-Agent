@@ -1,13 +1,12 @@
 import os
 import requests
-from dotenv import load_dotenv
+
 
 from langchain_groq import ChatGroq
 from langchain_core.tools import tool
 from tavily import TavilyClient
 from langchain.agents import create_agent
 
-load_dotenv()
 
 SYSTEM_PROMPT = """
 You are a City Intelligence Assistant.
