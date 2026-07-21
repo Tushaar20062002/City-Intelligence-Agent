@@ -1,6 +1,6 @@
 # City Intelligence Agent
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-success?style=for-the-badge)](https://your-demo-link.com) 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-success?style=for-the-badge)](https://city-intelligence-agent.streamlit.app/) 
 
 **City Intelligence Agent** is an AI-powered, interactive web application built with Streamlit and LangChain. It acts as a smart, conversational assistant capable of retrieving real-time data about any city in the world. By leveraging tool-calling capabilities, the agent autonomously decides when to fetch current weather, search for the latest news, or calculate driving routes based on natural language queries from the user.
 
