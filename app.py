@@ -8,12 +8,11 @@ Run with:
 
 import os
 import streamlit as st
-from dotenv import load_dotenv
+
 
 # Import our backend agent logic
 from agent import build_agent
 
-load_dotenv()
 
 # --------------------------------------------------------------------------
 # Page config
@@ -239,7 +238,7 @@ with st.sidebar:
         if key_val:
             return key_val
         if use_env_fallback:
-            return os.getenv(env_name, "")
+            return "no api key found"
         return ""
 
     final_groq = resolved(groq_key, "GROQ_API_KEY")
