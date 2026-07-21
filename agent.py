@@ -1,12 +1,10 @@
 import os
 import requests
 
-
 from langchain_groq import ChatGroq
 from langchain_core.tools import tool
 from tavily import TavilyClient
 from langchain.agents import create_agent
-
 
 SYSTEM_PROMPT = """
 You are a City Intelligence Assistant.
@@ -16,7 +14,6 @@ Responsibilities:
   explanation (e.g. heavy rain, heat, cold) alongside the numbers.
 - Use the news tool for news queries.
 - Use the search tool for general city information.
-- Use Route tool for getting routes for the users.
 - If multiple tools are required, call all necessary tools before answering.
 """
 
