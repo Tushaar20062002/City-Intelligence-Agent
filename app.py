@@ -1,5 +1,5 @@
 """
-URBANE — City Intelligence Agent
+City Intelligence Agent
 A Streamlit front-end for the LangChain + Groq + Tavily + OpenRouteService agent.
 
 Run with:
@@ -9,10 +9,8 @@ Run with:
 import os
 import streamlit as st
 
-
 # Import our backend agent logic
 from agent import build_agent
-
 
 # --------------------------------------------------------------------------
 # Page config
@@ -232,18 +230,9 @@ with st.sidebar:
     st.session_state["tavily_key"] = tavily_key
     st.session_state["ors_key"] = ors_key
 
-    use_env_fallback = st.checkbox("Fall back to server .env if a field is blank", value=True)
-
-    def resolved(key_val, env_name):
-        if key_val:
-            return key_val
-        if use_env_fallback:
-            return "no api key found"
-        return ""
-
-    final_groq = resolved(groq_key, "GROQ_API_KEY")
-    final_tavily = resolved(tavily_key, "Tavily_API_KEY")
-    final_ors = resolved(ors_key, "OpenRouteService_API")
+    final_groq = groq_key
+    final_tavily = tavily_key
+    final_ors = ors_key
 
     st.markdown(
         f"<div class='status-row'>{_dot(bool(final_groq))} Groq (reasoning)</div>"
@@ -279,8 +268,8 @@ st.markdown(
             <div class="pin-dot"></div>
         </div>
         <div>
-            <p class="urbane-title">Urbane</p>
-            <p class="urbane-sub">City Intelligence Agent — weather, news, and routes for any city</p>
+            <p class="urbane-title">City Intelligence Agent</p>
+            <p class="urbane-sub">Weather, news, and routes for any city</p>
         </div>
     </div>
     """,
@@ -316,7 +305,7 @@ if not st.session_state["messages"]:
 # Render history
 for msg in st.session_state["messages"]:
     role = msg["role"]
-    eyebrow = "You" if role == "user" else "Urbane"
+    eyebrow = "You" if role == "user" else "Agent"
     st.markdown(
         f"""
         <div class="bubble-row">
@@ -359,7 +348,7 @@ if query:
             """
             <div class="bubble-row">
                 <div class="bubble assistant">
-                    <div class="bubble-eyebrow">Urbane</div>
+                    <div class="bubble-eyebrow">Agent</div>
                     <div class="thinking"><span></span><span></span><span></span></div>
                 </div>
             </div>
@@ -378,7 +367,7 @@ if query:
             f"""
             <div class="bubble-row">
                 <div class="bubble assistant">
-                    <div class="bubble-eyebrow">Urbane</div>
+                    <div class="bubble-eyebrow">Agent</div>
                     {answer}
                 </div>
             </div>
